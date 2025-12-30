@@ -17,12 +17,19 @@ if (HasPermission(steamId, "admin.ban"))
 ## Messaging
 
 ```csharp
-// Reply to the command executor
+// Reply in chat to the command executor
 ReplyPlayer(player, "Hello!"); 
 
 // Reply to specific ID
 ReplyPlayer(steamId, "Private message");
+```
 
+## Admin command
+
+```csharp
 // Execute admin commands to user
 ProcessCommand(player.SteamId, "SpawnItem Weapon_M9");
+
+// Execute admin commands to server
+ProcessCommand(null, "SetTime 12");
 ```

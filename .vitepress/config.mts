@@ -26,6 +26,7 @@ export default defineConfig({
           { text: "Configuration", link: "/guide/configuration" },
           { text: "Data Storage", link: "/guide/data-storage" },
           { text: "Grant Permissions", link: "/guide/permission-plugin" },
+          { text: "Web API", link: "/guide/web-request" },
         ],
       },
       {

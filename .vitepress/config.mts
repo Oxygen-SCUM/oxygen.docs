@@ -18,6 +18,12 @@ export default defineConfig({
         ],
       },
       {
+        text: "Hooks",
+        items: [
+          { text: "Player Hooks", link: "/guide/player-hooks" }
+        ],
+      },
+      {
         text: "Core Concepts",
         items: [
           { text: "Chat Commands", link: "/guide/commands" },

@@ -10,8 +10,8 @@ Welcome to Oxygen Framework!
 ```csharp
 using System;
 using System.Collections.Generic;
-using oxygen.csharp.API;
-using oxygen.csharp.Core;
+using Oxygen.Csharp.API;
+using Oxygen.Csharp.Core;
 
 [Info("Hello World", "Me", "1.0.0")]
 public class MyPlugin : OxygenPlugin

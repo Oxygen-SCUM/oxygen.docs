@@ -26,23 +26,36 @@ public class ScumPlayer
 
 ## Reading Data
 
-Access the database via the this.Database property.
+Access the database via `this.Database`.
 
-### Single Record
-
-Use FindOne to retrieve a specific entry.
+### Basic Retrieval
 
 ```csharp
-public void OnPlayerJoin(PlayerBase player)
-{
-    // SELECT * FROM user WHERE id = '...' LIMIT 1
-    var dbPlayer = this.Database.FindOne<ScumPlayer>("id", player.SteamId);
-    
-    if (dbPlayer != null)
-    {
-        Console.WriteLine($"Last login: {dbPlayer.last_login_time}");
-    }
-}
+// Get all records
+var allPlayers = this.Database.All<ScumPlayer>();
+
+// Get a single record by condition (LIMIT 1)
+var player = this.Database.FindOne<ScumPlayer>("id", "76561198000000000");
+```
+
+### Filtering & Sorting
+
+New methods allow for optimized queries without loading the entire table.
+
+```csharp
+// Get all records matching a value (WHERE Col = Val)
+var admins = this.Database.FindWhere<ScumPlayer>("IsAdmin", 1);
+
+// Get the first N records
+var firstFive = this.Database.Take<ScumPlayer>(5);
+
+// Get the LAST record sorted by a column (DESC LIMIT 1)
+// Useful for getting the most recent log entry
+var lastLog = this.Database.Last<Log>("Timestamp");
+
+// Get the LAST N records sorted by a column
+// Useful for Leaderboards (e.g., Top 10 by FamePoints)
+var topPlayers = this.Database.TakeLast<ScumPlayer>(10, "FamePoints");
 ```
 
 ### Multiple Records
@@ -71,7 +84,7 @@ public void PrintTopPlayers()
 The Database API is Read-Only.
 Modifying the C# object properties will not save data to the server, as the game server holds the state in RAM.
 
-To modify data, use ExecuteCommand:
+To modify data, use ProcessCommand:
 
 ```csharp
 // Incorrect:

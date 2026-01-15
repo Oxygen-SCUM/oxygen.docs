@@ -34,6 +34,7 @@ export default defineConfig({
           { text: "Grant Permissions", link: "/guide/permission-plugin" },
           { text: "HTTP server", link: "/guide/web-request" },
           { text: "HTTP client", link: "/guide/http-client" },
+          { text: "Database Access", link: "/guide/database" },
         ],
       },
       {

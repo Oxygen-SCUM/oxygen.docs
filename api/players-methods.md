@@ -33,10 +33,20 @@ Sends a chat message to the specific player. This is the primary method for feed
 ``` csharp
 void Reply(string text, Color type = Color.White);
 ```
-
 **Parameters:**
 * `text`: The message text.
 * `type`: Message color (default is white). You can use the `Color` class (e.g., `Color.Red`, `Color.Green`).
+
+### Allowed colors
+
+| Color name | Preview |
+|-----------|---------|
+| White | Welcome on server! |
+| Blue | <span style="color:blue;">Welcome on server!</span> |
+| Green | <span style="color:green;">Welcome on server!</span> |
+| Yellow | <span style="color:gold;">Welcome on server!</span> |
+| Orange | <span style="color:orange;">Welcome on server!</span> |
+| Red | <span style="color:red;">Welcome on server!</span> |
 
 **Example:**
 ``` csharp

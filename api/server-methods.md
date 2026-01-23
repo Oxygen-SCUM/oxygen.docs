@@ -14,8 +14,6 @@ int count = Server.AllPlayers.Count;
 Console.WriteLine($"Players online: {count}");
 ```
 
----
-
 ## Chat & Broadcasting
 
 ### `PrintToChat`
@@ -29,12 +27,21 @@ static void PrintToChat(string text, Color type = Color.White);
 * `text`: The message to broadcast.
 * `type`: Color of the message (default is White).
 
+### Allowed colors
+
+| Color name | Preview |
+|-----------|---------|
+| White | Welcome on server! |
+| Blue | <span style="color:blue;">Welcome on server!</span> |
+| Green | <span style="color:green;">Welcome on server!</span> |
+| Yellow | <span style="color:gold;">Welcome on server!</span> |
+| Orange | <span style="color:orange;">Welcome on server!</span> |
+| Red | <span style="color:red;">Welcome on server!</span> |
+
 **Example:**
 ``` csharp
 Server.PrintToChat("Server restart in 5 minutes!", Color.Red);
 ```
-
----
 
 ## Command Execution
 

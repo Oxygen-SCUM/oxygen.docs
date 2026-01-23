@@ -47,6 +47,8 @@ export default defineConfig({
         ],
       }
     ],
-    socialLinks: [{ icon: "discord", link: "#" }],
+    socialLinks: [{ icon: "discord", link: "https://discord.gg/f5x7zAm4pF" },
+      { icon: "github", link: "https://github.com/Jemixs/Oxygen-scum-server-plugin" }
+    ],
   },
 });

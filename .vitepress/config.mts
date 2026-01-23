@@ -17,6 +17,14 @@ export default defineConfig({
           { text: "Plugin Structure", link: "/guide/plugin-structure" },
         ],
       },
+            {
+        text: "Reference & API",
+        items: [
+          { text: "Player (PlayerBase)", link: "/api/players-methods" },
+          { text: "Server API", link: "/api/server-methods" }
+        ],
+        
+      },
       {
         text: "Hooks",
         items: [
@@ -32,16 +40,12 @@ export default defineConfig({
           { text: "Configuration", link: "/guide/configuration" },
           { text: "Data Storage", link: "/guide/data-storage" },
           { text: "Grant Permissions", link: "/guide/permission-plugin" },
-          { text: "HTTP server", link: "/guide/web-request" },
+          { text: "Web API", link: "/guide/web-request" },
           { text: "HTTP client", link: "/guide/http-client" },
           { text: "Database Access", link: "/guide/database" },
           { text: "Timers", link: "/guide/timers" },
         ],
-      },
-      {
-        text: "Reference",
-        items: [{ text: "API Methods", link: "/api/methods" }],
-      },
+      }
     ],
     socialLinks: [{ icon: "discord", link: "#" }],
   },

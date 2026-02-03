@@ -22,6 +22,6 @@ public override bool OnPlayerMeleeAttack(PlayerBase player, string victimName)
 
 public override void OnPlayerDeath(PlayerBase player, DeathData info) 
 {
-    Console.WriteLine($"[C#] Player death (Steam: {player.Name}) [type death - {info.DeadType}] [death reason - {info.Reason}] [distance - {info.Distance}] - KILLER [{info.KillerName}]!");
+    Console.WriteLine($"[C#] Player death (Steam: {player.Name}) [type death - {info.DeadType}] [death reason - {info.Reason}] [distance - {info.Distance}] - KILLER [{info.KillerName}] is event - {info.Event}!");
 } 
 ```

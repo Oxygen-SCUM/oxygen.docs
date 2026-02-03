@@ -14,7 +14,7 @@ Access to basic player data.
 | `FakeName` | `string` | Fake name (used if the player is in streamer mode). |
 | `IpAddress` | `string` | The player's IP address. |
 | `Ping` | `int` | Current network latency (in milliseconds). |
-| `Location` | `Vector3` | Current player coordinates (X, Y, Z). |
+| `Location` | `Vector4` | Current player coordinates and movement direction (X, Y, Z, W). |
 ### Economy & Progression
 
 | Property | Type | Description |

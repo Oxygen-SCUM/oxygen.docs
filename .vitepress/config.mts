@@ -14,7 +14,8 @@ export default defineConfig({
         items: [
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "Installation & Updater", link: "/guide/updater" },
-          // { text: "Plugin Structure", link: "/guide/plugin-structure" },
+          { text: "Notifications", link: "/guide/notifications" },
+          { text: "Admin commands", link: "/guide/admin-commands" },
         ],
       },
             {

@@ -39,6 +39,7 @@ export default defineConfig({
             { text: "OnPlayerMiniGameEnded", link: "/hooks/player-miniGameEnded" },
             { text: "OnPlayerOpenInventory", link: "/hooks/player-openInventory" },
             { text: "OnPlayerTakeItemInHands", link: "/hooks/player-takeItemInHands" },
+            { text: "OnPlayerLockPickEnded", link: "/hooks/player-lockPickEnded" },
           ]
           },
           {

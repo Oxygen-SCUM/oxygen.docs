@@ -19,7 +19,7 @@ During the update process, the script will automatically detect and force-stop a
 
 1. **Download**: Get the latest updater from [GitHub Repository](https://github.com/Oxygen-SCUM/oxygen-updater/releases).
 2. **Placement**: Place `Run_Updater.bat` and `updater.ps1` in your server's root directory.
-![Описание картинки](/updater-lib.jpg)
+![Updater directory](/updater-lib.jpg)
 3. **Execution**: Run `Run_Updater.bat` as **Administrator** (required for Firewall and system checks).
 * When you first launch, you need to specify your API token from the server.
 

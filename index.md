@@ -7,11 +7,11 @@ hero:
   tagline: High-performance, hot-reloadable plugin system.
   actions:
     - theme: brand
-      text: Get Started
+      text: Server owners
       link: /guide/getting-started
-    - theme: alt
-      text: Player Hooks
-      link: /guide/player-hooks
+    - theme: brand
+      text: Plugin Developers
+      link: /guide/getting-started
 
 features:
   - title: C# .NET 8

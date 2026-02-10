@@ -13,6 +13,7 @@ export default defineConfig({
         text: "Introduction",
         items: [
           { text: "Getting Started", link: "/guide/getting-started" },
+          { text: "Installation & Updater", link: "/guide/updater" },
           // { text: "Plugin Structure", link: "/guide/plugin-structure" },
         ],
       },

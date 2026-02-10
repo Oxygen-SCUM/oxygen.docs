@@ -27,7 +27,27 @@ export default defineConfig({
       {
         text: "Hooks",
         items: [
-          { text: "Player Hooks", link: "/guide/player-hooks" }
+          { 
+            text: "Player (8)",
+            collapsed: true,
+            items: [
+            { text: "OnPlayerConnected", link: "/hooks/player-connected" },
+            { text: "OnPlayerDisconnected", link: "/hooks/player-disconnected" },
+            { text: "OnPlayerDeath", link: "/hooks/player-death" },
+            { text: "OnPlayerMeleeAttack", link: "/hooks/player-meleeAttack" },
+            { text: "OnPlayerMiniGameEnded", link: "/hooks/player-miniGameEnded" },
+            { text: "OnPlayerOpenInventory", link: "/hooks/player-openInventory" },
+            { text: "OnPlayerTakeItemInHands", link: "/hooks/player-takeItemInHands" },
+          ]
+          },
+          {
+            text: "Plugin (2)",
+            collapsed: true,
+            items: [
+              { text: "OnLoad", link: "/hooks/plugin-loaded" },
+              { text: "OnUnload", link: "/hooks/plugin-unloaded" },
+            ]
+          }
         ],
       },
       {
@@ -49,5 +69,20 @@ export default defineConfig({
     socialLinks: [{ icon: "discord", link: "https://discord.gg/f5x7zAm4pF" },
       { icon: "github", link: "https://github.com/Jemixs/Oxygen-scum-server-plugin" }
     ],
+
+    editLink: {
+      pattern: 'https://github.com/ваш-логин/ваш-репозиторий/edit/main/docs/:path',
+      text: 'Edit this page on GitHub'
+    },
+
+    // 2. Настройка "Last updated"
+    // Важно: текст будет на английском, если не настроить перевод
+    lastUpdated: {
+      text: 'Last updated',
+      formatOptions: {
+        dateStyle: 'short', // Выведет дату в формате DD.MM.YY
+        timeStyle: 'short'  // Выведет время HH:MM
+      }
+    }
   },
 });

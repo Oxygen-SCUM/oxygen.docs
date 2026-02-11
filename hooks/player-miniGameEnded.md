@@ -25,7 +25,7 @@ public override void OnPlayerMiniGameEnded(PlayerBase player, string gameName, b
 {
     if (succeeded)
     {
-        Puts($"Player {player.Name} won the {gameName} mini-game!");
+        Console.WriteLine($"Player {player.Name} won the {gameName} mini-game!");
     }
 }
 ```

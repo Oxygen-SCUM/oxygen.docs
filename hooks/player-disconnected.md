@@ -21,6 +21,6 @@ public virtual void OnPlayerDisconnected(PlayerBase player) {}
 ```csharp
 public override void OnPlayerDisconnected(PlayerBase player)
 {
-    Puts($"Player {player.Name} ({player.Steamid}) disconnected.");
+    Console.WriteLine($"Player {player.Name} ({player.Steamid}) disconnected.");
 }
 ```

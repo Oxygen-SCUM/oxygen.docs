@@ -21,6 +21,6 @@ public virtual void OnPlayerConnected(PlayerBase player) {}
 ```csharp
 public override void OnPlayerConnected(PlayerBase player)
 {
-    Puts($"Player {player.Name} ({player.Steamid}) connected.");
+    Console.WriteLine($"Player {player.Name} ({player.Steamid}) connected.");
 }
 ```

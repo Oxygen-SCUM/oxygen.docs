@@ -39,11 +39,11 @@ public override void OnPlayerDeath(PlayerBase player, DeathData info)
 {
     if (!string.IsNullOrEmpty(info.KillerName))
     {
-        Puts($"{player.Name} was killed by {info.KillerName} from {info.Distance}m ({info.Reason})");
+        Console.WriteLine($"{player.Name} was killed by {info.KillerName} from {info.Distance}m ({info.Reason})");
     }
     else
     {
-        Puts($"{player.Name} died due to {info.Reason}");
+        Console.WriteLine($"{player.Name} died due to {info.Reason}");
     }
 }
 ```

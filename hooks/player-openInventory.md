@@ -23,6 +23,6 @@ public virtual void OnPlayerOpenInventory(PlayerBase player, string itemName, in
 ```csharp
 public override void OnPlayerOpenInventory(PlayerBase player, string itemName, int ownerDBId)
 {
-    Puts($"Player {player.Name} opened {itemName} (Owner ID: {ownerDBId})");
+    Console.WriteLine($"Player {player.Name} opened {itemName} (Owner ID: {ownerDBId})");
 }
 ```

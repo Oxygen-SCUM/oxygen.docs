@@ -136,6 +136,6 @@ if (player.HasPermission("myplugin.admin"))
 
 ## Download
 
-U can donwnload the plugin on official Oxygen repository
+U can download the plugin on official Oxygen repository
 https://github.com/Oxygen-SCUM/oxygen.plugins/blob/main/AdminManager.cs
 

@@ -30,10 +30,11 @@ export default defineConfig({
         text: "Hooks",
         items: [
           { 
-            text: "Player (8)",
+            text: "Player (9)",
             collapsed: true,
             items: [
             { text: "OnPlayerConnected", link: "/hooks/player-connected" },
+            { text: "OnPlayerChat", link: "/hooks/player-chat" },
             { text: "OnPlayerDisconnected", link: "/hooks/player-disconnected" },
             { text: "OnPlayerDeath", link: "/hooks/player-death" },
             { text: "OnPlayerMeleeAttack", link: "/hooks/player-meleeAttack" },

@@ -57,11 +57,11 @@ export default defineConfig({
         text: "Core Concepts",
         items: [
           { text: "Chat Commands", link: "/guide/commands" },
-          // { text: "Permissions", link: "/guide/permissions" },
+          { text: "Permissions", link: "/guide/permissions" },
           { text: "Events", link: "/guide/events" },
           { text: "Configuration", link: "/guide/configuration" },
           { text: "Data Storage", link: "/guide/data-storage" },
-          // { text: "Grant Permissions", link: "/guide/permission-plugin" },
+          { text: "Grant Permissions", link: "/guide/permission-plugin" },
           { text: "Web API", link: "/guide/web-request" },
           { text: "HTTP client", link: "/guide/http-client" },
           { text: "Database Access", link: "/guide/database" },

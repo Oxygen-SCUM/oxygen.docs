@@ -1,8 +1,5 @@
 # Permissions System
-
-# <span style="color: orange; font-weight: bold;">DISABLED</span>
-
-Oxygen Framework includes a robust permission system.
+Oxygen Framework includes a robust, asynchronous permission system.
 
 ## Concepts
 
@@ -11,52 +8,55 @@ Oxygen Framework includes a robust permission system.
 - **Permission:** A string token (e.g., `kits.vip`, `admin.kick`).
 - **Wildcards:** Supporting `*` for full access or `kits.*` for partial categories.
 
-## Using Permissions in Plugins
+## Using Permissions in Plugins (Developer Guide)
 
-### 1. Attribute (Recommended)
-The simplest way to protect a command. The system automatically checks if the user has the permission before running the method.
+### 1. Attribute Check (Recommended)
+The simplest way to protect a command. The system automatically checks if the user has the permission before running the method. If they don't, the command execution is blocked.
 
 ```csharp
 [Command("kick")]
 [Permission("admin.kick")] // <--- Auto-check
-private void OnKick(string id, string[] args)
+private async Task OnKick(PlayerBase player, string[] args)
 {
     // Logic executes only if user has 'admin.kick' or 'admin.*' or '*'
-    Reply(id, "Kicked!");
+    player.Reply("Kicked target player!");
 }
 ```
 
 ### 2. Manual Check
-Use `HasPermission` for logic branching (e.g., VIPs get better rewards).
+Use `player.HasPermission(...)` for logic branching (e.g., giving VIPs better rewards or different behavior).
 
 ```csharp
 [Command("heal")]
-private void OnHeal(string id, string[] args)
+private async Task OnHeal(PlayerBase player, string[] args)
 {
-    if (HasPermission(id, "vip.fastheal"))
+    if (player.HasPermission("vip.fastheal"))
     {
-        Reply(id, "Instant heal applied (VIP)!");
+        player.Reply("Instant heal applied (VIP)!");
+        // Apply instant heal logic
     }
     else
     {
-        Reply(id, "Healing... please wait 10s.");
+        player.Reply("Healing... please wait 10s.");
+        // Apply slow heal logic
     }
 }
 ```
 
-## How to become an Admin
+## How to become an Admin (First Setup)
 
 When you first start the server, no one has permissions. You need to manually edit the data file to give yourself the `*` (Super Admin) permission.
 
-1. Start the server once to generate files.
-2. Open `data/oxygen.users.json`.
-3. Find your SteamID section or add it:
+1.  Start the server once to generate the folder structure.
+2.  Navigate to `SCUM/Binaries/Win64/oxygen/data/`.
+3.  Open **`oxygen.users.json`**.
+4.  Find the template section or add your SteamID:
 
 ```json
 {
   "Users": {
     "YOUR_STEAM_ID_HERE": {
-      "LastNickName": "Admin",
+      "LastNickName": "Owner",
       "Permissions": [
         "*" 
       ],
@@ -68,4 +68,4 @@ When you first start the server, no one has permissions. You need to manually ed
 }
 ```
 
-4. Save the file and reload the server (or a plugin). You now have full access.
+5.  Save the file and **restart the server**. You now have full access.

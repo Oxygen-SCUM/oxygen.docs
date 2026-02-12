@@ -9,7 +9,7 @@ Access to basic player data.
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| `DatabaseId` | `string` | Player id in SCUM.db. |
+| `DatabaseId` | `int` | Player id in SCUM.db. |
 | `SteamId` | `string` | Unique 64-bit Steam Identifier (ID64). |
 | `Name` | `string` | The character's display name. |
 | `FakeName` | `string` | Fake name (used if the player is in streamer mode). |

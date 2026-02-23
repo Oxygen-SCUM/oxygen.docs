@@ -16,6 +16,7 @@ export default defineConfig({
           { text: "Installation & Updater", link: "/guide/updater" },
           { text: "Notifications", link: "/guide/notifications" },
           { text: "Admin commands", link: "/guide/admin-commands" },
+          { text: "Working with Actors", link: "/guide/actors" },
         ],
       },
             {

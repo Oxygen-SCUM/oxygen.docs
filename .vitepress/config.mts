@@ -13,14 +13,14 @@ export default defineConfig({
     ['meta', { property: 'og:title', content: 'Oxygen Framework for SCUM' }],
     ['meta', { property: 'og:description', content: 'The ultimate plugin framework for SCUM servers. Build, customize, and manage with powerful API and Hooks.' }],
     
-    ['meta', { property: 'og:image', content: 'https://docs.oxymod.com/public/oxy-logo.png' }],
+    ['meta', { property: 'og:image', content: 'https://docs.oxymod.com/oxy-logo.png' }],
     ['meta', { property: 'og:url', content: 'https://docs.oxymod.com/' }],
 
     // 3. Twitter Cards (Twitter / X)
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'Oxygen Framework' }],
     ['meta', { name: 'twitter:description', content: 'The ultimate plugin framework for SCUM servers.' }],
-    ['meta', { name: 'twitter:image', content: 'https://docs.oxymod.com/public/oxy-logo.png' }]
+    ['meta', { name: 'twitter:image', content: 'https://docs.oxymod.com/oxy-logo.png' }]
   ],
   themeConfig: {
     nav: [

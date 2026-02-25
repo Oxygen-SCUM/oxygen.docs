@@ -29,14 +29,13 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        text: "Server Owners",
+        text: "Introduction",
         items: [
-          { text: "Getting Started", link: "/guide/owners/getting-started" },
-          { text: "Installing Oxygen", link: "/guide/owners/installing-oxygen" },
-          { text: "Managing Permissions", link: "/guide/owners/managing-permissions" },
-          { text: "Installing Plugins", link: "/guide/owners/installing-plugins" },
-          { text: "Configuring Plugins", link: "/guide/owners/configuring-plugins" },
-          { text: "Understanding Data Files", link: "/guide/owners/data-files" }
+          { text: "Getting Started", link: "/guide/getting-started" },
+          { text: "Installation & Updater", link: "/guide/updater" },
+          { text: "Notifications", link: "/guide/notifications" },
+          { text: "Admin commands", link: "/guide/admin-commands" },
+          { text: "Working with Actors", link: "/guide/actors" },
         ],
       },
       {

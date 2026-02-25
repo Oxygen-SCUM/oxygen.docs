@@ -55,7 +55,7 @@ bool GiveItem(string itemName);
 ```
 **Returns:** `true` if the item was spawned successfully.
 
----
+![type 1](/ezgif-7def87b4d4c86937.gif)
 
 ## Player Management
 

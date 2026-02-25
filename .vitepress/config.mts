@@ -2,13 +2,43 @@ import { defineConfig } from "vitepress";
 
 export default defineConfig({
   title: "Oxygen",
-  description: "C# Plugin System for SCUM Server",
+  description: "C# Advanced framework for SCUM servers",
+  lang: 'en-US',
+  head: [
+    // 1. Тема кольору (смужка збоку в Discord)
+    ['meta', { name: 'theme-color', content: '#b13c32' }],
+
+    // 2. Open Graph (Telegram, Discord, Facebook)
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'Oxygen Framework for SCUM' }],
+    ['meta', { property: 'og:description', content: 'The ultimate plugin framework for SCUM servers. Build, customize, and manage with powerful API and Hooks.' }],
+    
+    ['meta', { property: 'og:image', content: 'https://docs.oxymod.com/public/oxy-logo.png' }],
+    ['meta', { property: 'og:url', content: 'https://docs.oxymod.com/' }],
+
+    // 3. Twitter Cards (Twitter / X)
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'Oxygen Framework' }],
+    ['meta', { name: 'twitter:description', content: 'The ultimate plugin framework for SCUM servers.' }],
+    ['meta', { name: 'twitter:image', content: 'https://docs.oxymod.com/public/oxy-logo.png' }]
+  ],
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
-      { text: "Guide", link: "/guide/getting-started" }
+      { text: "Guide", link: "/guide/owners/getting-started" }
     ],
     sidebar: [
+      {
+        text: "Server Owners",
+        items: [
+          { text: "Getting Started", link: "/guide/owners/getting-started" },
+          { text: "Installing Oxygen", link: "/guide/owners/installing-oxygen" },
+          { text: "Managing Permissions", link: "/guide/owners/managing-permissions" },
+          { text: "Installing Plugins", link: "/guide/owners/installing-plugins" },
+          { text: "Configuring Plugins", link: "/guide/owners/configuring-plugins" },
+          { text: "Understanding Data Files", link: "/guide/owners/data-files" }
+        ],
+      },
       {
         text: "Introduction",
         items: [

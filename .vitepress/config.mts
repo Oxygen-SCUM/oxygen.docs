@@ -5,10 +5,8 @@ export default defineConfig({
   description: "C# Advanced framework for SCUM servers",
   lang: 'en-US',
   head: [
-    // 1. Тема кольору (смужка збоку в Discord)
     ['meta', { name: 'theme-color', content: '#b13c32' }],
 
-    // 2. Open Graph (Telegram, Discord, Facebook)
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'Oxygen Framework for SCUM' }],
     ['meta', { property: 'og:description', content: 'The ultimate plugin framework for SCUM servers. Build, customize, and manage with powerful API and Hooks.' }],
@@ -16,29 +14,51 @@ export default defineConfig({
     ['meta', { property: 'og:image', content: 'https://docs.oxymod.com/oxy-logo.png' }],
     ['meta', { property: 'og:url', content: 'https://docs.oxymod.com/' }],
 
-    // 3. Twitter Cards (Twitter / X)
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'Oxygen Framework' }],
     ['meta', { name: 'twitter:description', content: 'The ultimate plugin framework for SCUM servers.' }],
     ['meta', { name: 'twitter:image', content: 'https://docs.oxymod.com/oxy-logo.png' }]
   ],
   themeConfig: {
+    logo: '/logo.png',
     nav: [
+      {
+      text: 'To OXYMOD',
+      link: 'https://oxymod.com',
+      target: '_blank',
+      rel: 'noopener'
+      },
       { text: "Home", link: "/" },
       { text: "Guide", link: "/guide/owners/getting-started" }
     ],
+    search: {
+      provider: 'local'
+    },
     sidebar: [
-      {
-        text: "Introduction",
+       {
+        text: "Server owners",
         items: [
-          { text: "Getting Started", link: "/guide/getting-started" },
+          { text: "Getting Started", link: "/guide/owners/getting-started" },
+          { text: "Installing Oxygen", link: "/guide/owners/installing-oxygen" },
+          { text: "Installing Plugins", link: "/guide/owners/installing-plugins" },
+          { text: "Managing Permissions", link: "/guide/owners/managing-Permissions" },
+          { text: "Configuring Plugins", link: "/guide/owners/configuring-plugins" },
+          { text: "Understanding Data Files", link: "/guide/owners/data-files" },
+        ],
+      },
+      {
+        text: "Developer Introduction",
+        items: [
+          { text: "Getting Started", link: "/guide/developers/getting-started" },
+          { text: "My First plugin", link: "/guide/first-plugin" },
+          { text: "Plugin Structure", link: "/guide/plugin-structure" },
           { text: "Installation & Updater", link: "/guide/updater" },
           { text: "Notifications", link: "/guide/notifications" },
           { text: "Admin commands", link: "/guide/admin-commands" },
           { text: "Working with Actors", link: "/guide/actors" },
         ],
       },
-            {
+      {
         text: "Reference & API",
         items: [
           { text: "Player (PlayerBase)", link: "/api/players-methods" },
@@ -81,7 +101,6 @@ export default defineConfig({
         items: [
           { text: "Chat Commands", link: "/guide/commands" },
           { text: "Permissions", link: "/guide/permissions" },
-          { text: "Events", link: "/guide/events" },
           { text: "Configuration", link: "/guide/configuration" },
           { text: "Data Storage", link: "/guide/data-storage" },
           { text: "Grant Permissions", link: "/guide/permission-plugin" },
@@ -93,7 +112,7 @@ export default defineConfig({
       }
     ],
     socialLinks: [{ icon: "discord", link: "https://discord.gg/f5x7zAm4pF" },
-      { icon: "github", link: "https://github.com/Jemixs/Oxygen-scum-server-plugin" }
+      { icon: "github", link: "https://github.com/Oxygen-SCUM" }
     ],
 
     editLink: {

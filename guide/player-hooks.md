@@ -1,6 +1,6 @@
 # Player Hooks
 
-Override virtual methods to react to player events.
+Override override methods to react to player events.
 
 ```csharp
 public override void OnPlayerConnected(PlayerBase player)

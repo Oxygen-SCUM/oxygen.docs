@@ -117,5 +117,5 @@ public class Template : OxygenPlugin
 ---
 
 ## Next Steps
-* [Hook Reference](/guide/hooks) — Complete list of events like `OnPlayerConnected` or `OnPlayerDie`.
-* [PlayerBase](/guide/player-base) — Detailed interaction with player inventory and stats.
+* [Hook Reference](/hooks/player-connected) — Complete list of events like `OnPlayerConnected` or `OnPlayerDie`.
+* [PlayerBase](/api/players-methods) — Detailed interaction with player inventory and stats.

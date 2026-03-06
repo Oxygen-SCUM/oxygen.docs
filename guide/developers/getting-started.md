@@ -84,7 +84,6 @@ If a plugin fails to load:
 
 - **Commands:** [Chat Commands](/guide/commands)
 - **Permissions:** [Permissions](/guide/permissions)
-- **Events:** [Events](/guide/events)
 - **Player Hooks:** [Player Hooks](/guide/player-hooks)
 - **Timers:** [Timers & Delays](/guide/timers)
 - **Config Files:** [Configuration](/guide/configuration)

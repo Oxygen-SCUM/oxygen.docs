@@ -41,7 +41,7 @@ export default defineConfig({
           { text: "Getting Started", link: "/guide/owners/getting-started" },
           { text: "Installing Oxygen", link: "/guide/owners/installing-oxygen" },
           { text: "Installing Plugins", link: "/guide/owners/installing-plugins" },
-          { text: "Managing Permissions", link: "/guide/owners/managing-Permissions" },
+          { text: "Managing Permissions", link: "/guide/owners/managing-permissions" },
           { text: "Configuring Plugins", link: "/guide/owners/configuring-plugins" },
           { text: "Understanding Data Files", link: "/guide/owners/data-files" },
         ],

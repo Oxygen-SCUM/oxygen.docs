@@ -30,13 +30,14 @@ Access to basic player data.
 
 The player object allows direct interaction with their items.
 
-### `Inventory`
+### `Inventory` (PlayerInventory)
 Grants access to the player's current inventory. Returns a `PlayerInventory` object.
 
-| Property | Type | Description |
+| Property / Method | Type | Description |
 | :--- | :--- | :--- |
 | `All` | `IReadOnlyList<Item>` | A flat list of all items in the inventory (including nested items). |
 | `Count` | `int` | The number of root items (items directly in slots, not inside other items). |
+| `Clear()` | `int` | Completely clears the player's inventory by destroying all items. **Returns:** The number of deleted items. |
 
 ### `Item` Object
 Represents a specific item in the game.
@@ -46,16 +47,30 @@ Represents a specific item in the game.
 | `Name` | `string` | The item's name. |
 | `Contents` | `IReadOnlyList<Item>`| A list of nested items (e.g., items in a backpack or bullets in a magazine). |
 | `Destroy()` | `void` | Destroys this item and removes it from the game. |
+| `SetDurability(float %)` | `Item` | Sets item health (0.0 to 100.0). Automatically handles visual rust/dirt. **Returns:** The `Item` instance for chaining. |
+| `SetAmmo(int, [name])` | `Item` | Fills magazines or ammo boxes with the specified count and optional custom ammo type. **Returns:** The `Item` instance for chaining. |
+
+---
+
+## Giving and Equipping Items
 
 ### `GiveItem`
 Spawns and gives an item to the player. The system will first try to place the item directly into the player's inventory or merge it with existing stacks. **If there is no free space available, the item will be dropped on the ground directly in front of the player.** 
-
 ```csharp
-bool GiveItem(string itemName);
+Item GiveItem(string itemName);
 ```
-**Returns:** `true` if the item was spawned successfully.
+**Returns:** The spawned `Item` instance (or `null` if failed), allowing for immediate modification via Fluent API.
+
+### `EquipItem`
+Spawns an item and attempts to equip it directly onto the player (e.g., clothing, backpacks, weapons in hands).
+```csharp
+Item EquipItem(string itemName);
+```
+**Returns:** The spawned and equipped `Item` instance (or `null` if failed).
 
 ![type 1](/ezgif-7def87b4d4c86937.gif)
+
+---
 
 ## Player Management
 
@@ -65,6 +80,8 @@ Checks if the player has a specific permission.
 ```csharp
 bool HasPermission(string permission);
 ```
+
+---
 
 ## Interaction
 
@@ -98,13 +115,12 @@ These methods allow the plugin to execute server console commands **on behalf of
 ### `ProcessCommand`
 Executes a command "blindly" without waiting for a result. This is the fastest way to execute commands when you don't need a response from the server (e.g., teleportation, kill, suicide).
 
-``` csharp
+```csharp
 void ProcessCommand(string command);
 ```
 
 **Example:**
-``` csharp
-
+```csharp
 // Teleport the player to coordinates 0,0,0
 player.ProcessCommand("Teleport 0 0 0");
 ```
@@ -112,7 +128,7 @@ player.ProcessCommand("Teleport 0 0 0");
 ### `ProcessCommandAsync`
 Executes a command asynchronously and returns the execution result. Use this method if you need to know whether the command succeeded or need the response text from the server (e.g., when spawning items).
 
-``` csharp
+```csharp
 Task<CmdResult> ProcessCommandAsync(string command);
 ```
 
@@ -121,7 +137,7 @@ Task<CmdResult> ProcessCommandAsync(string command);
 * `Message` (`string`): Text response from the server (e.g., "Item spawned" or "Failed to spawn").
 
 **Example:**
-``` csharp
+```csharp
 [ChatCommand("kit")]
 public async void GiveKitCommand(PlayerBase player, string[] args)
 {
@@ -140,11 +156,15 @@ public async void GiveKitCommand(PlayerBase player, string[] args)
 }
 ```
 
+---
+
 ## Usage Examples
 
-### Give Starter Kit
+### Spawning Customized Items (Fluent API)
+Because methods like `GiveItem` and `EquipItem` return the `Item` object, you can immediately chain modifiers like `SetDurability` or `SetAmmo` in a single line of code!
+
 ```csharp
-public void GiveStarterKit(PlayerBase player)
+public void GiveCustomLoadout(PlayerBase player)
 {
     // Check permission
     if (!player.HasPermission("kits.starter"))
@@ -153,11 +173,16 @@ public void GiveStarterKit(PlayerBase player)
         return;
     }
 
-    // Give items directly to inventory (or drop if full)
-    player.GiveItem("Weapon_AK47");
-    player.GiveItem("Magazine_AK47");
-    
-    player.Reply("Starter kit received successfully!", Color.Green);
+    // 1. Equip a jacket and ensure it's in perfect condition
+    player.EquipItem("Motorcycle_Jacket_01")?.SetDurability(100f);
+
+    // 2. Give a weapon and make it rusty (15% health)
+    player.GiveItem("Weapon_AK47")?.SetDurability(15.0f); 
+
+    // 3. Give a magazine, fill it with 30 bullets, and make it brand new
+    player.GiveItem("Magazine_AK47")?.SetAmmo(30)?.SetDurability(100f);
+
+    player.Reply("Starter kit received successfully!", Color.Yellow);
 }
 ```
 
@@ -169,7 +194,15 @@ using System.Linq; // Required for LINQ extensions
 
 public void ManagePlayerItems(PlayerBase player)
 {
-    // 1. Check if the player has a specific item
+    // 1. Clear the entire inventory
+    if (player.Name == "BadGuy")
+    {
+        int removedCount = player.Inventory.Clear();
+        player.Reply($"Your inventory was wiped! Removed {removedCount} items.", Color.Red);
+        return;
+    }
+
+    // 2. Check if the player has a specific item
     bool hasScrewdriver = player.Inventory.All.Any(i => i.Name == "Tool_Screwdriver");
     if (!hasScrewdriver)
     {
@@ -177,11 +210,11 @@ public void ManagePlayerItems(PlayerBase player)
         return;
     }
 
-    // 2. Count specific items (e.g., count all bandages)
+    // 3. Count specific items (e.g., count all bandages)
     int bandageCount = player.Inventory.All.Count(i => i.Name.Contains("Bandage"));
     player.Reply($"You have {bandageCount} bandages in your inventory.", Color.Blue);
 
-    // 3. Find a specific item and destroy it
+    // 4. Find a specific item and destroy it
     var oldWeapon = player.Inventory.All.FirstOrDefault(i => i.Name == "Weapon_AK47");
     if (oldWeapon != null)
     {

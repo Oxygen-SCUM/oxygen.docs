@@ -179,8 +179,9 @@ public void GiveCustomLoadout(PlayerBase player)
     // 2. Give a weapon and make it rusty (15% health)
     player.GiveItem("Weapon_AK47")?.SetDurability(15.0f); 
 
-    // 3. Give a magazine, fill it with 30 bullets, and make it brand new
-    player.GiveItem("Magazine_AK47")?.SetAmmo(30)?.SetDurability(100f);
+    // 3. Give a magazine, fill it with 30 bullets
+    player.GiveItem("Magazine_AK47")?.SetAmmo(30, "Cal_7_62x39mm_TR");
+    player.GiveItem("Magazine_AK47")?.SetAmmo(30); // load default ammo for this mag. type
 
     player.Reply("Starter kit received successfully!", Color.Yellow);
 }

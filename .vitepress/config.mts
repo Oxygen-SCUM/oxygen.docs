@@ -38,16 +38,6 @@ export default defineConfig({
           { text: "Working with Actors", link: "/guide/actors" },
         ],
       },
-      {
-        text: "Introduction",
-        items: [
-          { text: "Getting Started", link: "/guide/getting-started" },
-          { text: "Installation & Updater", link: "/guide/updater" },
-          { text: "Notifications", link: "/guide/notifications" },
-          { text: "Admin commands", link: "/guide/admin-commands" },
-          { text: "Working with Actors", link: "/guide/actors" },
-        ],
-      },
             {
         text: "Reference & API",
         items: [
@@ -60,7 +50,7 @@ export default defineConfig({
         text: "Hooks",
         items: [
           { 
-            text: "Player (9)",
+            text: "Player (11)",
             collapsed: true,
             items: [
             { text: "OnPlayerConnected", link: "/hooks/player-connected" },
@@ -72,6 +62,8 @@ export default defineConfig({
             { text: "OnPlayerOpenInventory", link: "/hooks/player-openInventory" },
             { text: "OnPlayerTakeItemInHands", link: "/hooks/player-takeItemInHands" },
             { text: "OnPlayerLockPickEnded", link: "/hooks/player-lockPickEnded" },
+            { text: "OnPlayerRespawn", link: "/hooks/player-respawn" },
+            { text: "OnPlayerRespawned", link: "/hooks/player-respawned" },
           ]
           },
           {

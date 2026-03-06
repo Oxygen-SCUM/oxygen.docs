@@ -5,7 +5,7 @@ This hook is triggered when a player sends a message in the game chat.
 ## Definition
 
 ```csharp
-public virtual bool OnPlayerChat(PlayerBase player, string message)
+public virtual bool OnPlayerChat(PlayerBase player, string message, int chatType)
 {
     return true;
 }
@@ -17,6 +17,18 @@ public virtual bool OnPlayerChat(PlayerBase player, string message)
 | :--- | :--- | :--- |
 | `player` | `PlayerBase` | The player who sent the message. |
 | `message` | `string` | The content of the chat message. |
+| `chatType` | `int` | The content of the chat message. |
+
+### Chat type (Enum)
+
+| Value | Name |
+| :--- | :--- |
+| **0** | `Default` | 
+| **1** | `Local` |
+| **2** | `Global` |
+| **3** | `Squad` |
+| **4** | `Admin` |
+
 
 ## Return Value
 
@@ -27,7 +39,7 @@ public virtual bool OnPlayerChat(PlayerBase player, string message)
 ## Usage Example
 
 ```csharp
-public override bool OnPlayerChat(PlayerBase player, string message)
+public override bool OnPlayerChat(PlayerBase player, string message, )
 {
     if (message.Contains("badword"))
     {

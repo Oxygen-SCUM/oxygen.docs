@@ -5,7 +5,7 @@ This hook is triggered when a player attempts to take an item into their hands. 
 ## Definition
 
 ```csharp
-public virtual bool OnPlayerTakeItemInHands(PlayerBase player, string itemName)
+public override bool OnPlayerTakeItemInHands(PlayerBase player, string itemName)
 {
     return true;
 }

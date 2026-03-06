@@ -5,7 +5,7 @@ This hook is triggered when the plugin is being loaded by the system. It is typi
 ## Definition
 
 ```csharp
-public virtual void OnLoad() { }
+public override void OnLoad() { }
 ```
 ## Usage Example
 

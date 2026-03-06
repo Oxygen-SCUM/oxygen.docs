@@ -5,7 +5,7 @@ This hook is triggered **after** the player has successfully completed the respa
 ## Definition
 
 ```csharp
-public virtual void OnPlayerRespawned(PlayerBase player) {}
+public override void OnPlayerRespawned(PlayerBase player) {}
 ```
 
 ## Parameters

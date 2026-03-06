@@ -5,7 +5,7 @@ This hook is triggered when a player finishes a mini-game.
 ## Definition
 
 ```csharp
-public virtual void OnPlayerMiniGameEnded(PlayerBase player, string gameName, bool succeeded) {}
+public override void OnPlayerMiniGameEnded(PlayerBase player, string gameName, bool succeeded) {}
 ```
 
 ## Parameters

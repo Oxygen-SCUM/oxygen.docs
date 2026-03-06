@@ -5,7 +5,7 @@ This hook is triggered when a player disconnects from the server.
 ## Definition
 
 ```csharp
-public virtual void OnPlayerDisconnected(PlayerBase player) {}
+public override void OnPlayerDisconnected(PlayerBase player) {}
 ```
 
 ## Parameters

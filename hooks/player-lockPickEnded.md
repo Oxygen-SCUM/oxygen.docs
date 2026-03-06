@@ -5,7 +5,7 @@ This hook is triggered when a player finishes a lockpicking attempt, regardless 
 ## Definition
 
 ```csharp
-public virtual void OnPlayerLockPickEnded(PlayerBase player, PlayerLockPickData data) {}
+public override void OnPlayerLockPickEnded(PlayerBase player, PlayerLockPickData data) {}
 ```
 
 ## Parameters

@@ -5,7 +5,7 @@ This hook is triggered when a player respawns after death. It provides informati
 ## Definition
 
 ```csharp
-public virtual void OnPlayerRespawn(PlayerBase player, PlayerRespawnData data) {}
+public override void OnPlayerRespawn(PlayerBase player, PlayerRespawnData data) {}
 ```
 
 ## Parameters

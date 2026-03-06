@@ -5,7 +5,7 @@ This hook is triggered when a player performs a melee attack. Returning `false` 
 ## Definition
 
 ```csharp
-public virtual bool OnPlayerMeleeAttack(PlayerBase player, string victimName)
+public override bool OnPlayerMeleeAttack(PlayerBase player, string victimName)
 {
     return true;
 }

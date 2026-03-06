@@ -5,7 +5,7 @@ This hook is triggered when the player opens any inventory.
 ## Definition
 
 ```csharp
-public virtual void OnPlayerOpenInventory(PlayerBase player, string itemName, int ownerDBId, int EntityId) {}
+public override void OnPlayerOpenInventory(PlayerBase player, string itemName, int ownerDBId, int EntityId) {}
 ```
 
 ## Parameters

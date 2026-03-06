@@ -5,7 +5,7 @@ This hook is triggered when a player has successfully connected to the server.
 ## Definition
 
 ```csharp
-public virtual void OnPlayerConnected(PlayerBase player) {}
+public override void OnPlayerConnected(PlayerBase player) {}
 ```
 
 ## Parameters

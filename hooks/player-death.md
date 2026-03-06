@@ -5,7 +5,7 @@ This hook is triggered when a player dies. It provides detailed information abou
 ## Definition
 
 ```csharp
-public virtual void OnPlayerDeath(PlayerBase player, DeathData info) {}
+public override void OnPlayerDeath(PlayerBase player, DeathData info) {}
 ```
 
 ## Parameters

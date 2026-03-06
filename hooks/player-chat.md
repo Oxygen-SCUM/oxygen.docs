@@ -5,7 +5,7 @@ This hook is triggered when a player sends a message in the game chat.
 ## Definition
 
 ```csharp
-public virtual bool OnPlayerChat(PlayerBase player, string message, int chatType)
+public override bool OnPlayerChat(PlayerBase player, string message, int chatType)
 {
     return true;
 }

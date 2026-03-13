@@ -39,7 +39,7 @@ SCUM/
             ├── plugins/        ← C# plugin files (.cs)
             ├── configs/        ← JSON config files
             ├── data/           ← JSON data files
-            └── logs/           ← Plugin compilation/runtime logs
+        └── logs/OxygenError.log ← Plugin compilation/runtime logs
 ```
 
 ## Plugin Skeleton

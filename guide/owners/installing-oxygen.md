@@ -84,8 +84,8 @@ After the updater completes successfully:
    │       │   ├── configs/
    │       │   ├── data/
    │       │   └── plugins/
-   ├── Run_Updater.bat
-   └── updater.ps1
+   Run_Updater.bat
+   updater.ps1
    ```
 
 2. **Start your SCUM server** normally
@@ -167,7 +167,7 @@ After successful installation:
 If you encounter issues:
 
 1. Check the updater output for error messages
-2. Review `SCUM/Binaries/Win64//logs/OxygenError.log` for detailed logs
+2. Review `SCUM/Binaries/Win64/logs/OxygenError.log` for detailed logs
 3. Verify all prerequisites are met
 4. Contact Oxygen support with:
    - Updater output/error messages

@@ -39,7 +39,7 @@ public override bool OnPlayerChat(PlayerBase player, string message, int chatTyp
 ## Usage Example
 
 ```csharp
-public override bool OnPlayerChat(PlayerBase player, string message, )
+public override bool OnPlayerChat(PlayerBase player, string message, int chatType)
 {
     if (message.Contains("badword"))
     {

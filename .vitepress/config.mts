@@ -52,7 +52,6 @@ export default defineConfig({
           { text: "Getting Started", link: "/guide/developers/getting-started" },
           { text: "My First plugin", link: "/guide/first-plugin" },
           { text: "Plugin Structure", link: "/guide/plugin-structure" },
-          { text: "Installation & Updater", link: "/guide/updater" },
           { text: "Notifications", link: "/guide/notifications" },
           { text: "Admin commands", link: "/guide/admin-commands" },
           { text: "Working with Actors", link: "/guide/actors" },

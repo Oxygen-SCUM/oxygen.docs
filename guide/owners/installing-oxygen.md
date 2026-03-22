@@ -26,16 +26,20 @@ The Oxygen updater automatically checks for and helps install these dependencies
 Oxygen requires .NET 8.0 Runtime, not .NET Framework. Make sure you install the correct version.
 :::
 
+::: danger Antivirus notice
+Because the plugin binary is obfuscated to prevent tampering, some antivirus engines may flag it as malware. This is a false positive; whitelist locally if needed.
+:::
+
 ## Downloading the Updater
 
 1. Visit the [Oxygen Updater GitHub Repository](https://github.com/Oxygen-SCUM/oxygen-updater/releases).
-2. Download the latest release (you'll get two files):
+2. Download the latest release (you'll get two files in arhive):
    - `Run_Updater.bat`
    - `updater.ps1`
-3. Extract both files to your SCUM server's **root directory** (where `SCUM.exe` or `SCUMServer.exe` is located).
+3. Extract arhive to your SCUM server's **root directory**
 
 ::: tip Server Root Location
-For most servers, this is: `[YourDrive]:\SteamLibrary\steamapps\common\SCUM\SCUM\Binaries\Win64\`
+For most servers, this is: `[YourDrive]:\SteamLibrary\steamapps\common\SCUM\`
 :::
 
 ![Updater Placement](/updater-lib.jpg)
@@ -49,10 +53,9 @@ For most servers, this is: `[YourDrive]:\SteamLibrary\steamapps\common\SCUM\SCUM
 3. The updater will:
    - Check for required dependencies (VC++, .NET 8.0, OpenSSL)
    - Prompt you if any dependencies are missing with download links
-   - Request your **API Token** (you'll receive this from the Oxygen team)
+   - Request your **API Token** (on Server page COPY)
 4. Enter your API token when prompted
 5. The updater will:
-   - Create `oxygen_license.json` with your token
    - Download the latest Oxygen files
    - Extract them to the correct directories
    - Create a firewall rule for port 8447 (if needed)
@@ -80,25 +83,29 @@ After the updater completes successfully:
    SCUM/
    ├── Binaries/
    │   └── Win64/
-   │       ├── oxygen/           ← Oxygen framework files
+   │       ├── oxygen/           ← Oxygen framework files created after first run
    │       │   ├── configs/
    │       │   ├── data/
    │       │   └── plugins/
+   │       ├── logs/OxygenErrors.log  ← created after first run
    Run_Updater.bat
    updater.ps1
    ```
 
-2. **Start your SCUM server** normally
+2. **Start your SCUM server** with **-oxygen=API_KEY** parameter
 3. **Check the server console** for Oxygen initialization messages:
    ```
    [OXYGEN] Successfully loaded
    [OXYGEN] plugin version 0.x.x
-   [OXYGEN] Loading plugins...
    ```
 
 4. **Verify web interface** (if applicable):
    - The updater creates a firewall rule for port **8447**
    - Check firewall rules: `netsh advfirewall firewall show rule name="Oxygen Web Link"`
+
+::: warning IMPORTANT
+You may need to open a port on the router are connected to.
+:::
 
 ## Updating Oxygen
 
@@ -158,7 +165,7 @@ You should see: `Microsoft.NETCore.App 8.0.x`
 
 After successful installation:
 
-1. [Set up owner permissions](/guide/owners/managing-permissions) to grant yourself admin access
+1. [Set up owner permissions](/guide/owners/managing-permissions) if you want use Permission system in plugins
 2. [Install your first plugin](/guide/owners/installing-plugins)
 3. [Configure plugin settings](/guide/owners/configuring-plugins)
 

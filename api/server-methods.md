@@ -1,17 +1,146 @@
 # Server API
 
-The `Server` class provides static methods for managing the global state of the game server. It allows you to broadcast messages, execute server-wide commands, and access the list of connected players.
+The `Server` class provides static methods for managing the global state of the game server. It allows you to broadcast messages, execute server-wide commands, and access the list of connected players and spawned entities.
 
-## Player Management
+## Server Parameters
+
+Access real-time information about the server's time and weather conditions.
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `TimeOfDay` | `float` | Current game time (ranging from 0.0 to 24.0). |
+| `TimeMultiplier` | `float` | Speed of time progression on the server. |
+| `SunriseTime` | `float` | Time of sunrise in the game. |
+| `SunsetTime` | `float` | Time of sunset in the game. |
+| `RainCloudsCoverage`| `float` | Level of storm clouds and rain coverage. |
+| `WindSpeed` | `float` | Current wind speed. |
+| `OutServerTime` | `float` | Uptime of the server since the last restart (in seconds). |
+
+## Server Collections
+
+These properties allow you to fetch players and spawned entities across the map. 
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
 | `AllPlayers` | `List<PlayerBase>` | Returns a list of all currently connected players. Useful for iteration, searching, or filtering. |
+| `AllVehicles` | `List<VehicleDataPacket>` | Returns a fresh list of all vehicles on the server, including virtualized ones. |
+| `AllFlags` | `List<FlagDataPacket>` | Returns a fresh list of all built bases (flags) on the server. |
+| `AllSquads` | `List<SquadDataPacket>` | Returns a fresh list of all squads currently on the server. |
+| `AllBunkers` | `List<BunkerDataPacket>` | Returns a list of abandoned bunkers and their current status. |
 
-**Example: Counting players**
+## Data Structures (List Parameters)
+
+Below are the data structures returned by the entity management lists above.
+
+### Squad Data
 ``` csharp
-int count = Server.AllPlayers.Count;
-Console.WriteLine($"Players online: {count}");
+public struct SquadDataPacket
+{
+    public string Name;
+    public string Message;
+    public int MaxMembers;
+    public int MemberCount;
+    public SquadMemberData[] Members; // Up to 64 members
+}
+
+public struct SquadMemberData
+{
+    public string SteamId;
+    public int Rank;
+    public bool Online;
+    public bool IsAlive;
+    public bool InDanger;
+}
+```
+
+### Bunker Data
+``` csharp
+public struct BunkerDataPacket
+{
+    public double PreviousActivationEnd; //timestamp
+    public double ActivationStart; //timestamp
+    public double ActivationEnd; //timestamp
+    public float X;
+    public float Y;
+    public float Z;
+    public bool IsSecretBunker;
+    public bool OpenedViaKeycard;
+}
+```
+
+### Flags Data
+``` csharp
+public struct FlagDataPacket
+{
+    public ulong FlagID;
+    public ulong OwnerDBId;
+    public float X;
+    public float Y;
+    public float Z;
+    public string OwnerName;
+}
+```
+
+### Vehicles Data
+``` csharp
+public struct VehicleDataPacket
+{
+    public ulong VehicleID;
+    public ulong GroupID;
+    public ulong OwnerID; // database id
+    public ulong Timestamp;
+    public float X;
+    public float Y;
+    public float Z;
+    public string ClassName;
+}
+```
+
+### Collection Examples
+
+**Players: Finding a specific player**
+``` csharp
+foreach (var player in Server.AllPlayers)
+{
+    if (player.Name == "Admin")
+    {
+        Server.PrintToChat("Admin is online!", Color.Green);
+    }
+}
+```
+
+**Vehicles: Counting all spawned vehicles**
+``` csharp
+var vehicles = Server.AllVehicles;
+Console.WriteLine($"There are currently {vehicles.Count} vehicles on the server.");
+```
+
+**Flags: Checking for built bases**
+``` csharp
+var flags = Server.AllFlags;
+if (flags.Count > 0)
+{
+    Console.WriteLine($"Players have built {flags.Count} bases (flags).");
+}
+```
+
+**Squads: Listing all squad names and their sizes**
+``` csharp
+foreach (var squad in Server.AllSquads)
+{
+    Console.WriteLine($"Squad '{squad.Name}' has {squad.MemberCount}/{squad.MaxMembers} members.");
+}
+```
+
+**Bunkers: Finding all secret bunkers**
+``` csharp
+foreach (var bunker in Server.AllBunkers)
+{
+    if (bunker.IsSecretBunker)
+    {
+        Console.WriteLine($"Secret bunker located at X: {bunker.X}, Y: {bunker.Y}");
+    }
+}
 ```
 
 ## Chat & Broadcasting
@@ -85,6 +214,7 @@ public async void CheckServerInfo()
     }
 }
 ```
+
 ## Usage Examples
 
 ### Announcement System

@@ -15,6 +15,7 @@ Access to basic player data.
 | `IpAddress` | `string` | The player's IP address. |
 | `Ping` | `int` | Current network latency (in milliseconds). |
 | `Location` | `Vector4` | Current player coordinates and movement direction (X, Y, Z, W). |
+| `InGameEvent` | `bool` | Is the player currently participating in events |
 
 ### Economy & Progression
 

@@ -116,9 +116,12 @@ public void CallPersonalMech(PlayerBase player)
     float y = player.Location.Y;
     float z = player.Location.Z;
 
-    // 1. Spawn a standard Mech near the player (offset by +500 on the X axis)
-    IntPtr myMech = SpawnActor(SpawnableType.Sentry, x + 500f, y, z);
-
+    MainThreadDispatcher.RunOnMainThread(() => // run in main theard
+    {
+      // 1. Spawn a standard Mech near the player (offset by +500 on the X axis)
+      IntPtr myMech = SpawnActor(SpawnableType.Sentry, x + 500f, y, z);
+    });
+    
     if (myMech == IntPtr.Zero)
     {
         player.Reply("Error spawning Mech!", Color.Red);

@@ -101,6 +101,7 @@ export default defineConfig({
           { text: "Chat Commands", link: "/guide/commands" },
           { text: "Permissions", link: "/guide/permissions" },
           { text: "Configuration", link: "/guide/configuration" },
+          { text: "Inter-Plugin Communication", link: "/guide/plugin-dep" },
           { text: "Data Storage", link: "/guide/data-storage" },
           { text: "Grant Permissions", link: "/guide/permission-plugin" },
           { text: "Web API", link: "/guide/web-request" },
